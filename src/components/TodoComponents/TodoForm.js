@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -8,20 +9,32 @@ const useStyles = makeStyles(theme => ({
   },
   input: {
     display: 'none'
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200
   }
 }));
 
 const TodoForm = props => {
   const classes = useStyles();
   return (
-    <form>
-      <input
-        onChange={props.handleTodoChange}
-        type="text"
-        name="todo"
-        value={props.value}
-        placeholder="todo"
-      />
+    <form className={classes.container} noValiidate autoComplete="off">
+      <div>
+        <TextField
+          onChange={props.handleTodoChange}
+          type="text"
+          name="todo"
+          value={props.value}
+          placeholder="todo"
+          id="standard-basic"
+          className={classes.textField}
+          label="Standard"
+          margin="normal"
+        />
+      </div>
+
       <Button
         variant="contained"
         color="primary"
