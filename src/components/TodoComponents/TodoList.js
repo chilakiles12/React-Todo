@@ -4,11 +4,14 @@ import Todo from './Todo';
 
 const TodoList = props => {
   return (
-    <div className="todo-list">
+    <div>
       {props.todos.map(todo => (
-        <Todo key={todo.id} todo={todo} />
+        <Todo
+          handleToggleComplete={props.handleToggleComplete}
+          key={todo.id}
+          todo={todo}
+        />
       ))}
-      <button onClick={props.clearPurchased}>Clear Purchased</button>
     </div>
   );
 };
